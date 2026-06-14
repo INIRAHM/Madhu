@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Madhukumar C. | Technical Operations & Cybersecurity</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0c10;
+      color: #eef2ff;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    /* custom scroll */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f1117;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e88e5;
+      border-radius: 10px;
+    }
+
+    /* container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(10, 12, 16, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid #1e2a3a;
+      padding: 1rem 0;
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 2.2rem;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #cbd5e6;
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+    }
+    .nav-links a:hover {
+      color: #2a9eff;
+      border-bottom: 2px solid #2a9eff;
+      padding-bottom: 4px;
+    }
+
+    /* sections */
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid #1e242c;
+    }
+    .home-section {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding-top: 40px;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      border-left: 4px solid #1e88e5;
+      padding-left: 20px;
+      letter-spacing: -0.3px;
+    }
+
+    /* home content */
+    .home-content h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff 0%, #7ab3ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    .typewriter {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin: 1rem 0;
+      color: #b9d0ff;
+    }
+    .typed-text {
+      color: #2a9eff;
+      border-right: 2px solid #2a9eff;
+      padding-right: 5px;
+      animation: blink 0.7s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { border-color: #2a9eff; }
+      50% { border-color: transparent; }
+    }
+    .home-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 2rem 0 1rem;
+    }
+    .btn-primary, .btn-outline {
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: 0.25s;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+    .btn-primary {
+      background: #1e88e5;
+      border: none;
+      color: white;
+      box-shadow: 0 4px 12px rgba(30,136,229,0.3);
+    }
+    .btn-primary:hover {
+      background: #0b5e9e;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #1e88e5;
+      color: #e0f2fe;
+    }
+    .btn-outline:hover {
+      background: rgba(30,136,229,0.1);
+      border-color: #5cb0ff;
+      transform: translateY(-2px);
+    }
+
+    /* skills bars */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+    .skill-item {
+      background: #101318;
+      padding: 0.8rem 1rem;
+      border-radius: 16px;
+      border-left: 3px solid #1e88e5;
+    }
+    .skill-name {
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .progress-bar {
+      background: #1f2937;
+      border-radius: 20px;
+      height: 8px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      background: #1e88e5;
+      width: 0%;
+      height: 100%;
+      border-radius: 20px;
+      transition: width 1s ease;
+    }
+
+    /* experience & project cards */
+    .exp-card, .project-card {
+      background: #0f1117;
+      border-radius: 24px;
+      padding: 1.8rem;
+      margin-bottom: 1.8rem;
+      border: 1px solid #20262e;
+      transition: 0.2s;
+    }
+    .exp-card:hover, .project-card:hover {
+      border-color: #1e88e5;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px -12px rgba(0,0,0,0.5);
+    }
+    .exp-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: white;
+    }
+    .exp-company {
+      color: #7aaef5;
+      margin: 0.3rem 0 1rem;
+      font-weight: 500;
+    }
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    .tech-badge {
+      background: #1e2a3a;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #bbd9ff;
+    }
+    .cert-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .cert-badge {
+      background: #10161f;
+      border: 1px solid #2c3e50;
+      padding: 8px 18px;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    /* contact & form */
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    .contact-info {
+      flex: 1;
+    }
+    .contact-info p {
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .contact-form {
+      flex: 1;
+      background: #0f1117;
+      padding: 1.8rem;
+      border-radius: 28px;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      background: #1a1e26;
+      border: 1px solid #2b3440;
+      padding: 12px 16px;
+      margin-bottom: 1rem;
+      border-radius: 20px;
+      color: white;
+      font-family: inherit;
+    }
+    .contact-form button {
+      background: #1e88e5;
+      width: 100%;
+      padding: 12px;
+      border-radius: 40px;
+      font-weight: bold;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #6c7a8a;
+    }
+    @media (max-width: 760px) {
+      .home-content h1 { font-size: 2.3rem; }
+      .typewriter { font-size: 1.2rem; }
+      .section-title { font-size: 1.8rem; }
+    }
+    .social-icons a {
+      color: #b0c4de;
+      margin-right: 20px;
+      font-size: 1.4rem;
+      transition: 0.2s;
+    }
+    .social-icons a:hover { color: #1e88e5; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <!-- HOME SECTION -->
+  <section id="home" class="home-section">
+    <div class="container">
+      <div class="home-content">
+        <h1>Hi, I'm Madhukumar C.</h1>
+        <div class="typewriter">
+          <span>Technical Operations | </span>
+          <span class="typed-text" id="typed"></span>
+        </div>
+        <p style="max-width: 600px; margin: 1rem 0 1.5rem; font-size: 1.1rem; color: #cbd5e6;">
+          I specialize in Technical Support, Linux Administration, Networking, Server Monitoring, and Security Operations. 
+          I enjoy solving infrastructure problems and building reliable IT solutions.
+        </p>
+        <div class="home-buttons">
+          <a href="#" class="btn-primary" id="downloadResumeBtn"><i class="fas fa-download"></i> Download Resume</a>
+          <a href="#contact" class="btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+        </div>
+        <div class="social-icons">
+          <a href="https://linkedin.com/in/madhukumarc" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/madhukumarc" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="mailto:madhukumarc009@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ME -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">👨‍💻 About Me</h2>
+      <div style="background: #0f1117; padding: 2rem; border-radius: 28px;">
+        <p style="font-size: 1.05rem; line-height: 1.6;">I am a Computer Science graduate with hands-on experience at Eduquity Career Technologies, supporting large-scale CBT infrastructure, server monitoring, incident management, and network troubleshooting. I am passionate about networking, Linux, cybersecurity, and automation using Python. I bring a problem-solving mindset and a dedication to infrastructure reliability.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS with progress bars animated on view -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">🛠 Technical Skills</h2>
+      <div class="skills-grid" id="skillsGrid">
+        <!-- skills will be injected but also static for clarity: using JS to fill but keep html fallback -->
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">💼 Experience</h2>
+      <div class="exp-card">
+        <div class="exp-title">Technical Operations & Server Support Executive</div>
+        <div class="exp-company">Eduquity Career Technologies | May 2025 – Present</div>
+        <ul style="margin-left: 1.2rem; color: #cbd5e6; display: flex; flex-direction: column; gap: 8px;">
+          <li>✅ Supported 1000+ concurrent CBT candidates with 99.9% uptime.</li>
+          <li>✅ Server monitoring & troubleshooting (Linux/Windows), incident response.</li>
+          <li>✅ Network troubleshooting (TCP/IP, DNS, DHCP) and technical support for exam centers.</li>
+          <li>✅ Automated log analysis scripts reducing resolution time by 20%.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">🚀 Featured Projects</h2>
+      <div class="project-card">
+        <h3 style="font-size: 1.4rem;">Network Monitoring & Log Analysis</h3>
+        <div class="project-tech"><span class="tech-badge">Python</span><span class="tech-badge">ELK Stack</span><span class="tech-badge">Log Monitoring</span></div>
+        <p>Built a centralized log analysis pipeline using Python and ELK to monitor network anomalies, real-time dashboards, and automated alerting for suspicious activities.</p>
+      </div>
+      <div class="project-card">
+        <h3 style="font-size: 1.4rem;">Security Operations Dashboard</h3>
+        <div class="project-tech"><span class="tech-badge">Power BI</span><span class="tech-badge">SQL</span><span class="tech-badge">Python</span></div>
+        <p>Designed interactive dashboard for SOC metrics, visualizing incident trends, firewall logs, and threat patterns, enabling data-driven security decisions.</p>
+      </div>
+      <div class="project-card">
+        <h3 style="font-size: 1.4rem;">Networking Lab (DNS/DHCP)</h3>
+        <div class="project-tech"><span class="tech-badge">Ubuntu</span><span class="tech-badge">Cisco Packet Tracer</span><span class="tech-badge">DNS/DHCP</span></div>
+        <p>Configured enterprise-grade DNS & DHCP servers on Ubuntu, simulated multi-VLAN network in Packet Tracer, and implemented firewall rules.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="container">
+      <h2 class="section-title">📜 Certifications</h2>
+      <div class="cert-list">
+        <span class="cert-badge"><i class="fab fa-compass"></i> CompTIA Network+</span>
+        <span class="cert-badge"><i class="fas fa-network-wired"></i> Cisco Networking Basics</span>
+        <span class="cert-badge"><i class="fab fa-linux"></i> Linux Administration Fundamentals</span>
+        <span class="cert-badge"><i class="fab fa-python"></i> Python for Network Automation</span>
+        <span class="cert-badge"><i class="fas fa-tasks"></i> ITIL 4 Foundation (In Progress)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT + FORM -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">📞 Contact Me</h2>
+      <div class="contact-flex">
+        <div class="contact-info">
+          <p><i class="fas fa-envelope fa-fw" style="color:#1e88e5;"></i> madhukumarc009@gmail.com</p>
+          <p><i class="fas fa-phone-alt fa-fw" style="color:#1e88e5;"></i> +91 8688050394</p>
+          <p><i class="fab fa-linkedin fa-fw" style="color:#1e88e5;"></i> linkedin.com/in/madhukumarc</p>
+          <p><i class="fab fa-github fa-fw" style="color:#1e88e5;"></i> github.com/madhukumarc</p>
+        </div>
+        <div class="contact-form">
+          <form id="contactForm">
+            <input type="text" placeholder="Your Name" required id="formName">
+            <input type="email" placeholder="Email Address" required id="formEmail">
+            <textarea rows="3" placeholder="Message..." required id="formMsg"></textarea>
+            <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+          </form>
+          <p id="formFeedback" style="font-size:0.8rem; margin-top: 12px; color:#7ab3ff;"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <p>© 2026 Madhukumar C. — Built for Technical Operations, Network & Cybersecurity portfolio</p>
+  </footer>
+</main>
+
+<script>
+  // ---------- TYPING ANIMATION ----------
+  const roles = ["Network Administrator", "SOC Analyst", "Cybersecurity Enthusiast", "Linux Admin", "TechOps Engineer"];
+  let roleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typedSpan = document.getElementById("typed");
+
+  function typeEffect() {
+    const currentRole = roles[roleIndex];
+    if (isDeleting) {
+      typedSpan.textContent = currentRole.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      typedSpan.textContent = currentRole.substring(0, charIndex + 1);
+      charIndex++;
+    }
+    if (!isDeleting && charIndex === currentRole.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 2000);
+      return;
+    }
+    if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      setTimeout(typeEffect, 200);
+      return;
+    }
+    const speed = isDeleting ? 60 : 120;
+    setTimeout(typeEffect, speed);
+  }
+  typeEffect();
+
+  // ---------- SKILLS WITH PROGRESS BARS (Animated on scroll) ----------
+  const skillsList = [
+    { name: "Windows Server", level: 85 },
+    { name: "Linux (Ubuntu, Kali)", level: 88 },
+    { name: "TCP/IP & DNS", level: 90 },
+    { name: "DHCP & Wireshark", level: 82 },
+    { name: "Python Automation", level: 80 },
+    { name: "SQL & Power BI", level: 78 },
+    { name: "Git & GitHub", level: 85 },
+    { name: "Server Monitoring", level: 86 },
+    { name: "Incident Management", level: 84 }
+  ];
+  const skillsContainer = document.getElementById("skillsGrid");
+  function buildSkills() {
+    skillsContainer.innerHTML = "";
+    skillsList.forEach(skill => {
+      const skillDiv = document.createElement("div");
+      skillDiv.classList.add("skill-item");
+      skillDiv.innerHTML = `
+        <div class="skill-name"><span>${skill.name}</span><span>${skill.level}%</span></div>
+        <div class="progress-bar"><div class="progress-fill" data-level="${skill.level}" style="width: 0%;"></div></div>
+      `;
+      skillsContainer.appendChild(skillDiv);
+    });
+  }
+  buildSkills();
+
+  // Intersection Observer for skill progress bars
+  const progressBars = document.querySelectorAll(".progress-fill");
+  let animated = false;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animated) {
+        progressBars.forEach(bar => {
+          const widthVal = bar.getAttribute("data-level");
+          bar.style.width = `${widthVal}%`;
+        });
+        animated = true;
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  observer.observe(skillsContainer);
+
+  // ---------- DOWNLOAD RESUME (mock pdf) ----------
+  const downloadBtn = document.getElementById("downloadResumeBtn");
+  downloadBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    // create fake resume download (txt version but real style)
+    const resumeContent = `
+MADHUKUMAR C. - Technical Operations & Cybersecurity Professional
+
+EXPERIENCE:
+Technical Operations & Server Support Executive | Eduquity Career Technologies (2025-Present)
+- Supported 1000+ concurrent CBT candidates, server monitoring, incident response.
+- Network troubleshooting (TCP/IP, DNS/DHCP) and technical support.
+
+SKILLS:
+Windows Server, Linux (Ubuntu/Kali), TCP/IP, DNS, DHCP, Wireshark, Python, SQL, Power BI, Git, Server Monitoring, Incident Management.
+
+CERTIFICATIONS:
+CompTIA Network+, Cisco Networking Basics, Linux Administration, Python for Network Automation, ITIL4 (in progress).
+
+PROJECTS:
+Network Monitoring with ELK, SOC Dashboard (PowerBI), Networking Lab with Packet Tracer.
+    `;
+    const blob = new Blob([resumeContent], { type: "application/pdf" }); // simulate but as text/pdf
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Madhukumar_C_Resume.pdf";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    // Also small toast or alert (optional)
+    const msg = document.createElement("div");
+    msg.innerText = "✓ Resume download started (sample)";
+    msg.style.position = "fixed"; msg.style.bottom = "20px"; msg.style.right = "20px";
+    msg.style.background = "#1e88e5"; msg.style.padding = "8px 16px"; msg.style.borderRadius = "30px";
+    msg.style.color = "white"; msg.style.zIndex = "999"; msg.style.fontSize = "0.8rem";
+    document.body.appendChild(msg);
+    setTimeout(() => msg.remove(), 2500);
+  });
+
+  // ---------- CONTACT FORM SIMULATE ----------
+  const contactForm = document.getElementById("contactForm");
+  const feedbackSpan = document.getElementById("formFeedback");
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("formName").value.trim();
+    const email = document.getElementById("formEmail").value.trim();
+    const msg = document.getElementById("formMsg").value.trim();
+    if(name && email && msg) {
+      feedbackSpan.innerHTML = "✨ Thanks! I'll get back to you soon (demo submission).";
+      feedbackSpan.style.color = "#6fcf97";
+      contactForm.reset();
+      setTimeout(() => { feedbackSpan.innerHTML = ""; }, 4000);
+      // In real scenario, you could connect backend, but for portfolio it's frontend demo.
+    } else {
+      feedbackSpan.innerHTML = "⚠️ Please fill all fields.";
+      feedbackSpan.style.color = "#ffa26b";
+      setTimeout(() => { if(feedbackSpan.innerHTML === "⚠️ Please fill all fields.") feedbackSpan.innerHTML = ""; }, 2500);
+    }
+  });
+
+  // Smooth scrolling for all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === "#" || href === "") return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Additional: project cards hover effect already in CSS, ensure responsive layout
+  // also add extra dummy to fix progress bar re-trigger if needed (just in case)
+  window.addEventListener("load", () => {
+    // preload for any icon
+  });
+</script>
+</body>
+</html>
